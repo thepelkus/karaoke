@@ -1,0 +1,5 @@
+#!/usr/bin/env osascript
+
+tell application "System Events"
+        set frontmost of process "Safari" to true
+end tell

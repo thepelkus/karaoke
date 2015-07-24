@@ -1,0 +1,5 @@
+#!/usr/bin/env osascript
+
+tell application "System Events"
+        set frontmost of process "mpv" to true
+end tell

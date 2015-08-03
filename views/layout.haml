@@ -1,0 +1,10 @@
+%html
+  %h1 KARAOKE
+  %ul.header
+    %li
+      %a{href: "/playlist"} Playlist
+      %a{href: "/"} Song List
+  - if (defined? flash_content)
+    .flash
+      #{flash_content}
+  =yield

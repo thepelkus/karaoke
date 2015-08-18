@@ -1,0 +1,71 @@
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background: black;
+  color: red;
+  display: flex;
+  justify-content: center;
+  padding: .5em;
+  margin: 0;
+}
+
+.header {
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: .5em 0;
+}
+
+.header li {
+  margin: 0 2em;
+}
+
+.header a {
+  color:
+}
+
+.chunking_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.song_search_container, .song_alphabet_container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  padding: .5em;
+}
+
+.song-list {
+}
+
+.catalog_entry {
+  margin-bottom: 1em;
+}
+
+.next_song_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  margin-top: -100px;
+}
+
+.next_song {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.next_song_container #song_title {
+  font-size: 2em;
+  margin: .5em;
+}

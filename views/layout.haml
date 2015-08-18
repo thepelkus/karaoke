@@ -1,10 +1,24 @@
 %html
+  %head
+    %meta{name: "viewport", content:"width=device-width, initial-scale=1"}
+    %script{ :src => 'https://code.jquery.com/jquery-2.1.4.js', :type => 'text/javascript', :charset => 'utf-8' }
+    %script{ :src => 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js', :type => 'text/javascript', :charset => 'utf-8' }
+    %script{ type: "text/javascript", src: "js/infinity.js" }
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "css/styles.css"}
+  %body
   %h1 KARAOKE
   %ul.header
     %li
+      %a{href: "/controls"} Player Controls
+    %li
       %a{href: "/playlist"} Playlist
-      %a{href: "/"} Song List
+    %li
+      %a{href: "/"} Song Catalog
   - if (defined? flash_content)
     .flash
       #{flash_content}
-  =yield
+  #main_content
+    =yield
+  %script{ type: "text/javascript", src: "js/do_infinity_stuff_at_the_end.js" }
+  %script{ type: "text/javascript", src: "js/set_up_search_box.js" }
+  %script{ type: "text/javascript", src: "js/set_up_letters_dropdown_too.js" }

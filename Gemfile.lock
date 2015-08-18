@@ -3,6 +3,8 @@ GEM
   specs:
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    daemons (1.2.3)
+    eventmachine (1.0.8)
     ffi (1.9.10)
     haml (4.0.6)
       tilt
@@ -24,6 +26,10 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
     tilt (1.4.1)
     timers (4.0.1)
       hitimes
@@ -36,3 +42,4 @@ DEPENDENCIES
   redis
   rerun
   sinatra
+  thin

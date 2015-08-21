@@ -10,6 +10,9 @@
 %ul.song-list
   - songs.each_with_index do |song, index|
     %li.catalog_entry
-      %a(href="/song/#{song["id"]}/play")
-        .artist #{song["artist"]}
-        .title #{song["title"]}
+      .artist
+        %a(href="/song/#{song["id"]}/play")
+          #{song["artist"]}
+      .title 
+        %a(href="/song/#{song["id"]}/play")
+          #{song["title"]}

@@ -1,7 +1,9 @@
+/* General Styles */
+
 body {
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
+  font-family: 'Rubik', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -14,6 +16,12 @@ h1 {
   padding: .5em;
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+/* Nav Styles */
 
 .header {
   background: #eee;
@@ -29,28 +37,59 @@ h1 {
 }
 
 .header a {
-  color:
 }
 
-.chunking_container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+
+/* Search Styles */
+
+.search_bar {
 }
 
-.song_search_container, .song_alphabet_container {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  padding: .5em;
+.song_search_container {
 }
+
+input#search {
+  width: 100%;
+  height: 3rem;
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+
+/* Browse Styles */
+
+.song_alphabet_container {
+  margin: 1rem 0 0 1.1rem;
+  font-size: 0.75rem;
+}
+
+select#letter_picker {
+  margin-left: 0.25rem;
+}
+
+/* Song List Styles */
 
 .song-list {
+  margin: 2rem 1.2rem;
+  padding: 0;
+  list-style: none;
 }
 
 .catalog_entry {
-  margin-bottom: 1em;
+  margin-bottom: 2rem;
 }
+
+.artist {
+
+}
+
+.title {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+
+/* Playlist Styles */
 
 .next_song_container {
   display: flex;

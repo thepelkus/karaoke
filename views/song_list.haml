@@ -1,13 +1,12 @@
-.chunking_container
+.search_bar
   .song_search_container
-    Search
-    %input#search{name: "search", placeholder: "Type to filter song list", type: "text", data: {toggle: "searchresults", list: ".song-list"} }
-  .song_alphabet_container
-    Browse by "artist" letter
-    %select#letter_picker
-      %option -
-      - ('a'..'z').each do |letter|
-        %option #{letter}
+    %input#search{name: "search", placeholder: "Search the song library", type: "text", data: {toggle: "searchresults", list: ".song-list"} }
+.song_alphabet_container
+  Browse by:
+  %select#letter_picker
+    %option Artist name
+    - ('a'..'z').each do |letter|
+      %option #{letter}
 %ul.song-list
   - songs.each_with_index do |song, index|
     %li.catalog_entry

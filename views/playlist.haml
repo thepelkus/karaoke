@@ -2,4 +2,5 @@
   %ul
     - songs.each_with_index do |song, index|
       %li
-        %a{href: "/playlist_entry/#{index}", style: song[:current] ? "font-weight: bold" : "" } #{song[:name]}
+        %span{style: song[:current] ? "font-weight: bold" : "" } #{song[:name]}
+        %a(href="/delete_from_playlist/#{index}") [x]

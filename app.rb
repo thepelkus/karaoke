@@ -228,7 +228,7 @@ def make_playlist_command
 end
 
 def skip_to_next_track_command
-  { "command" => ["playlist-next"] }.to_json
+  { "command" => ["playlist-remove", "current"] }.to_json
 end
 
 def play_song_by_id(song_index)

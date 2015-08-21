@@ -124,6 +124,8 @@ end
 get '/finish_between' do
   show_mpv
   play_mpv
+
+  haml :finish_between
 end
 
 get '/skip_current' do

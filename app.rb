@@ -23,7 +23,8 @@ attempt_to_ensure_mpv
 # Constants!
 
 SLEEP_TIME = 0.1
-KARAOKE_LIBRARY_ROOT = "/Volumes/Portable media/karaoke"
+#KARAOKE_LIBRARY_ROOT = "/Volumes/Portable media/karaoke"
+KARAOKE_LIBRARY_ROOT = "/Volumes/Substantial Backup/karaoke"
 CATALOG_JSON_PATH = "./catalog.json"
 CHUNK_SIZE = 100
 #KARAOKE_LIBRARY_ROOT = "/Users/kai/personal/sites/karaoke/songfiles"
@@ -145,6 +146,25 @@ get '/skip_current' do
     }
 end
 
+get '/delete_from_playlist/:playlist_entry_number' do
+  playlist_entry_number = params[:playlist_entry_number].to_i
+
+  s = UNIXSocket.new('/tmp/mpvsocket')
+  sleep SLEEP_TIME
+  clear_socket(s)
+  s.puts delete_playlist_entry_command(playlist_entry_number)
+  sleep SLEEP_TIME
+
+  pl = get_playlist
+
+  haml :playlist,
+    :format => :html5,
+    :locals => {
+      flash_content: "Song removed from playlist!",
+      songs: pl
+    }
+end
+
 # API ROUTES
 get '/api/songs' do
   CachedSongLister
@@ -207,6 +227,10 @@ get '/api/alphabet/:letter' do
 end
 
 # NOT ROUTES!
+def delete_playlist_entry_command(playlist_entry_number)
+  { "command" => ["playlist_remove", playlist_entry_number.to_s] }.to_json
+end
+
 def unpause_command
   { "command" => ["set_property_string", "pause", "no"] }.to_json
 end
@@ -228,7 +252,7 @@ def make_playlist_command
 end
 
 def skip_to_next_track_command
-  { "command" => ["playlist-remove", "current"] }.to_json
+  { "command" => ["playlist-next"] }.to_json
 end
 
 def play_song_by_id(song_index)

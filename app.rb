@@ -21,13 +21,7 @@ end
 attempt_to_ensure_mpv
 
 # Constants!
-
-SLEEP_TIME = 0.1
-#KARAOKE_LIBRARY_ROOT = "/Volumes/Portable media/karaoke"
-KARAOKE_LIBRARY_ROOT = "/Volumes/Substantial Backup/karaoke"
-CATALOG_JSON_PATH = "./catalog.json"
-CHUNK_SIZE = 100
-#KARAOKE_LIBRARY_ROOT = "/Users/kai/personal/sites/karaoke/songfiles"
+require_relative 'config.rb'
 
 # Routes!
 

@@ -336,6 +336,8 @@ class CachedSongLister
   def songs
     json_source = File.read(CATALOG_JSON_PATH)
     songs = JSON.parse(json_source)
+  rescue
+    {}
   end
 end
 

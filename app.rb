@@ -21,13 +21,17 @@ end
 attempt_to_ensure_mpv
 
 # Constants!
-
-SLEEP_TIME = 0.1
-#KARAOKE_LIBRARY_ROOT = "/Volumes/Portable media/karaoke"
-KARAOKE_LIBRARY_ROOT = "/Volumes/Substantial Backup/karaoke"
-CATALOG_JSON_PATH = "./catalog.json"
-CHUNK_SIZE = 100
-#KARAOKE_LIBRARY_ROOT = "/Users/kai/personal/sites/karaoke/songfiles"
+if File.exists? 'config.rb'
+  require_relative 'config.rb'
+elsif File.exists? 'config.rb.example'
+  load 'config.rb.example'
+  warning_message = "YOU ARE USING THE EXAMPLE CONFIGURATION FILE. PLEASE REPLACE THIS WITH A CUSTOM VERSION AS SOON AS POSSIBLE"
+  puts "++++++++++++++++++"
+  puts warning_message
+  puts "++++++++++++++++++"
+else
+  puts "THERE IS NO CONFIGURATION FILE AVAILABLE"
+end
 
 # Routes!
 
@@ -332,6 +336,8 @@ class CachedSongLister
   def songs
     json_source = File.read(CATALOG_JSON_PATH)
     songs = JSON.parse(json_source)
+  rescue
+    {}
   end
 end
 

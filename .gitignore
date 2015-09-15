@@ -1,4 +1,5 @@
 *.swp
 songfiles
 catalog.json
+config.rb
 *.log

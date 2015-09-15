@@ -6,9 +6,12 @@ require 'json'
 require 'uri'
 
 # Startup things?
+def mpv_exists?
+  /idle/.match(`ps aux | grep mpv`)
+end
 
 def attempt_to_ensure_mpv
-  return if /idle/.match(`ps aux | grep mpv`)
+  return if mpv_exists?
 
   pid = Process.fork
   if pid.nil? then
@@ -387,6 +390,8 @@ end
 
 PLAYLIST_RETRY_COUNT = 1
 def get_playlist
+  return fake_playlist unless mpv_exists?
+
   playlist_attempts_remaining = PLAYLIST_RETRY_COUNT
   latest_playlist = nil
   while playlist_attempts_remaining > 0 && !latest_playlist
@@ -402,4 +407,13 @@ def get_playlist
     pl.push playlist_entry
   }
   pl
+end
+
+def fake_playlist
+  [
+    { name: "THIS IS SAMPLE DATA - MPV IS PROBABLY NOT RUNNING", current: true},
+    { name: "Aqua - Barbie Girl", current: false },
+    { name: "Disney - Part of Your World", current: false },
+    { name: "Taylor Swift - Shake It Off", current: false }
+  ]
 end

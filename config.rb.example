@@ -3,6 +3,7 @@ SLEEP_TIME = 0.1
 
 # Path where song catalog will be generated and read from
 CATALOG_JSON_PATH = "./catalog.json"
+EXAMPLE_CATALOG_PATH = "./catalog.json.example"
 
 # Size of paging chunks returned by paged API calls
 CHUNK_SIZE = 100

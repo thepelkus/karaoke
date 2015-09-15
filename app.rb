@@ -333,11 +333,22 @@ class SongLister
 end
 
 class CachedSongLister
+  def initialize
+    if File.exists? CATALOG_JSON_PATH
+      @catalog_path = CATALOG_JSON_PATH
+    elsif File.exists? EXAMPLE_CATALOG_PATH
+      @catalog_path = EXAMPLE_CATALOG_PATH
+      puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+      puts "USING EXAMPLE CATALOG FILE; go to 'host/build_catalog' to make your own"
+      puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    else
+      @catalog_path = ""
+    end
+  end
+
   def songs
-    json_source = File.read(CATALOG_JSON_PATH)
+    json_source = File.read(@catalog_path)
     songs = JSON.parse(json_source)
-  rescue
-    {}
   end
 end
 
